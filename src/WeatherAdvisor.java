@@ -1,6 +1,18 @@
 import java.util.Scanner;
 
 public class WeatherAdvisor {
+
+    // Método que devuelve la cadena FizzBuzzBoom según el número
+    public static String getFizzBuzzString(int n) {
+        String result = "";
+
+        if (n % 3 == 0) result += "Fizz";
+        if (n % 5 == 0) result += "Buzz";
+        if (n % 7 == 0) result += "Boom";
+
+        return result.isEmpty() ? String.valueOf(n) : result;
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -10,20 +22,9 @@ public class WeatherAdvisor {
         System.out.print("Enter the end of the range: ");
         int end = scanner.nextInt();
 
+        System.out.println("\n--- FizzBuzzBoom Results ---");
         for (int i = start; i <= end; i++) {
-            if (i % 3 == 0 && i % 5 == 0 && i % 7 == 0) {
-                System.out.println("FizzBuzzBoom");
-            } else if (i % 3 == 0 && i % 5 == 0) {
-                System.out.println("FizzBuzz");
-            } else if (i % 3 == 0) {
-                System.out.println("Fizz");
-            } else if (i % 5 == 0) {
-                System.out.println("Buzz");
-            } else if (i % 7 == 0) {
-                System.out.println("Boom");
-            } else {
-                System.out.println(i);
-            }
+            System.out.println(getFizzBuzzString(i));
         }
 
         scanner.close();
