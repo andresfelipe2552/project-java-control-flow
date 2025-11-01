@@ -1,17 +1,31 @@
+import java.util.Scanner;
+
 public class WeatherAdvisor {
     public static void main(String[] args) {
-        int temperature = 28; // Temperatura en grados Celsius
+        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("The temperature is " + temperature + "°C.");
+        System.out.print("Enter the start of the range: ");
+        int start = scanner.nextInt();
 
-       if (temperature > 30) {
-    System.out.println("It's a hot day. Remember to stay hydrated!");
-} else if (temperature > 20) {
-    System.out.println("It's a nice warm day. Enjoy the weather!");
-} else if (temperature > 10) {
-    System.out.println("It's a bit cool. You might need a light jacket.");
-} else {
-    System.out.println("It's cold. Wear warm clothes!");
-}
+        System.out.print("Enter the end of the range: ");
+        int end = scanner.nextInt();
+
+        for (int i = start; i <= end; i++) {
+            if (i % 3 == 0 && i % 5 == 0 && i % 7 == 0) {
+                System.out.println("FizzBuzzBoom");
+            } else if (i % 3 == 0 && i % 5 == 0) {
+                System.out.println("FizzBuzz");
+            } else if (i % 3 == 0) {
+                System.out.println("Fizz");
+            } else if (i % 5 == 0) {
+                System.out.println("Buzz");
+            } else if (i % 7 == 0) {
+                System.out.println("Boom");
+            } else {
+                System.out.println(i);
+            }
+        }
+
+        scanner.close();
     }
 }
